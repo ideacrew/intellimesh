@@ -1,0 +1,50 @@
+AllCops:
+  Exclude:
+    - bin/console
+    - bin/setup
+    - lib/intellimesh/config/sneakers_extensions.rb
+
+Gemspec/OrderedDependencies:
+  Exclude:
+    - intellimesh.gemspec
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/intellimesh/configuration/diplomat_provider_spec.rb
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - lib/intellimesh.rb
+    - lib/intellimesh/configuration.rb
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Layout/ExtraSpacing:
+  Exclude:
+    - ic_task_fabric.gemspec
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - ic_task_fabric.gemspec
+
+Style/StringLiterals:
+  Enabled: false

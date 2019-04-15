@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dan Thomas"]
   spec.email         = ["dan@ideacrew.com"]
 
-  spec.summary       = %q{IdeaCrew's smart integration}
-  spec.description   = %q{IdeaCrew's smart integration}
+  spec.summary       = "IdeaCrew's smart integration"
+  spec.description   = "IdeaCrew's smart integration"
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -32,23 +33,28 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  # spec.bindir        = "exe"
+  # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.test_files = Dir["spec/**/*"]
 
-  spec.add_dependency "rails", "~> 6.0.0.beta3"
+  # We want this to take full advantage of upcoming rails technologies.
+  # However, we currently have a number of applications which are
+  # unable to upgrade past this point.
+  # Our first order of business will be to boost this requirement
+  # to the Rails 5 series as soon as we can.
+  spec.add_dependency "rails", ">= 4.2"
   spec.add_dependency 'activesupport'
   spec.add_dependency 'sneakers',                 '>= 2.11'
   spec.add_dependency 'active_model_serializers', '>= 0.10.0'
   # spec.add_dependency "mongoid"
 
-  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_development_dependency "rspec-rails" 
+  spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency 'shoulda-matchers'
   # spec.add_development_dependency "mongoid-rspec"
   # spec.add_development_dependency 'database_cleaner'

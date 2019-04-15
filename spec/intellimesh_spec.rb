@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Intellimesh do
   it "has a version number" do
     expect(Intellimesh::VERSION).not_to be nil
