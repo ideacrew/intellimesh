@@ -8,6 +8,10 @@ Gemspec/OrderedDependencies:
   Exclude:
     - intellimesh.gemspec
 
+Layout/IndentHeredoc:
+  Exclude:
+    - lib/intellimesh/generators/sneakers_active_job_host_generator.rb
+
 Metrics/BlockLength:
   Exclude:
     - spec/intellimesh/configuration/diplomat_provider_spec.rb
@@ -25,6 +29,9 @@ Style/Documentation:
   Exclude:
     - lib/intellimesh.rb
     - lib/intellimesh/configuration.rb
+    - lib/intellimesh/generators.rb
+    - lib/intellimesh/process_host.rb
+    - lib/intellimesh/process_host/configuration.rb
 
 Style/ExpandPathArguments:
   Enabled: false
@@ -37,14 +44,6 @@ Style/NumericLiterals:
 
 Style/WordArray:
   Enabled: false
-
-Layout/ExtraSpacing:
-  Exclude:
-    - ic_task_fabric.gemspec
-
-Layout/SpaceAroundOperators:
-  Exclude:
-    - ic_task_fabric.gemspec
 
 Style/StringLiterals:
   Enabled: false

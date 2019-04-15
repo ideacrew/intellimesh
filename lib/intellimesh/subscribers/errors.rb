@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Intellimesh
-  module Errors
-    module PubliserErrors
+  module Subscribers
+    module Errors
     end
   end
 end
