@@ -1,0 +1,98 @@
+# frozen_string_literal: true
+
+require File.join(File.dirname(__FILE__), "configuration", "errors")
+require File.join(File.dirname(__FILE__), "configuration", "provider")
+require File.join(File.dirname(__FILE__), "configuration", "hash_provider")
+require File.join(File.dirname(__FILE__), "configuration", "diplomat_provider") if defined?(Diplomat)
+
+module Intellimesh
+  module Configuration
+    # @api private
+    class Core
+      # rubocop:disable Style/ClassVars
+
+      def initialize
+        return if defined?(@@tenant_name)
+
+        @@tenant_name = nil
+        @@environment_name = nil
+      end
+
+      def tenant_name=(t_name)
+        @@tennant_name = t_name
+      end
+
+      def tenant_name
+        @@tennant_name
+      end
+
+      def environment_name=(e_name)
+        @@environment_name = e_name
+      end
+
+      def environment_name
+        @@environment_name
+      end
+      # rubocop:enable Style/ClassVars
+    end
+
+    # @api private
+    class Backend
+      # rubocop:disable Style/ClassVars
+
+      def initialize
+        return if defined?(@@provider)
+
+        @@provider = nil
+      end
+
+      def provider=(prov)
+        @@provider = prov
+      end
+
+      def provider
+        @@provider
+      end
+      # rubocop:enable Style/ClassVars
+    end
+
+    module Base
+      def backend
+        Thread.current[:_i_mesh_task_fabric_config] ||= Backend.new
+      end
+
+      def core
+        Thread.current[:_i_mesh_task_fabric_core_config] ||= Core.new
+      end
+
+      def provider=(prov)
+        backend.provider = prov
+      end
+
+      def tenant_name=(t_name)
+        core.tenant_name = t_name
+      end
+
+      def tenant_name
+        core.tenant_name
+      end
+
+      def environment_name=(e_name)
+        core.environment_name = e_name
+      end
+
+      def environment_name
+        core.environment_name
+      end
+
+      def get(value, default = nil)
+        prov = backend.provider
+        raise Errors::NoProviderSpecifiedError unless prov
+
+        prov.get(value, tenant_name, environment_name, default)
+      end
+    end
+
+    extend Base
+  end
+end

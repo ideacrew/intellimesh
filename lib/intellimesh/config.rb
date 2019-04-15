@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module Intellimesh
-
-  require "intellimesh/config/sneakers_extensions"
-
+  module Config
+    require "intellimesh/config/sneakers_extensions"
+  end
 end

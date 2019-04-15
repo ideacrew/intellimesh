@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 require "bundler/setup"
+require "diplomat"
+require "rails"
 require "intellimesh"
 
 RSpec.configure do |config|

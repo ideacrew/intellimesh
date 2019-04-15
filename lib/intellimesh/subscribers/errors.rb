@@ -1,8 +1,10 @@
-module Intellimesh
-  module Errors
-    module SubscriberErrors
+# frozen_string_literal: true
 
-      class TimeoutError < IntellimeshError
+module Intellimesh
+  module Subscribers
+    module Errors
+
+      class TimeoutError < Intellimesh::Errors::IntellimeshError
         def initialize(active_job, task)
           super(
             compose_message(

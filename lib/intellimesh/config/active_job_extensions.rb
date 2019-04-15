@@ -1,1 +1,1 @@
-active_job_extensions.rb
+# frozen_string_literal: true
