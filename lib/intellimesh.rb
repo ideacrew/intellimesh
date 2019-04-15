@@ -1,9 +1,6 @@
-require "intellimesh/version"
-
 require "active_support"
-
+require "intellimesh/version"
 require "intellimesh/config"
-
 require "intellimesh/publishers"
 require "intellimesh/subscribers"
 
