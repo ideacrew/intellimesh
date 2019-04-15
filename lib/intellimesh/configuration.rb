@@ -87,6 +87,10 @@ module Intellimesh
         core.environment_name
       end
 
+      # Get a configuration value.
+      # @param setting [#join, String] the configuration setting to retrieve
+      # @param default [Object, nil] the default value if one is not found
+      # @return [Object, nil]
       def get(value, default = nil)
         prov = backend.provider
         raise Errors::NoProviderSpecifiedError unless prov
