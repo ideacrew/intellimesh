@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require "active_support"
+
 require "intellimesh/version"
 require "intellimesh/config"
+require "intellimesh/loggable"
+require "intellimesh/errors/intellimesh_error"
 require "intellimesh/publishers"
 require "intellimesh/subscribers"
 require File.join(File.dirname(__FILE__), "intellimesh", "configuration")
@@ -13,5 +16,7 @@ require File.join(File.dirname(__FILE__), "intellimesh", "generators") if define
 # require "intellimesh/amqp/worker_specification"
 
 module Intellimesh
-  class Error < StandardError; end
+  extend Loggable
+
+  # class Error < StandardError; end
 end
