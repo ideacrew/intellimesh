@@ -31,6 +31,8 @@ Style/Documentation:
     - lib/intellimesh/configuration.rb
     - lib/intellimesh/generators.rb
     - lib/intellimesh/process_host.rb
+    - lib/intellimesh/protocols.rb
+    - lib/intellimesh/protocols/amqp.rb
     - lib/intellimesh/process_host/configuration.rb
 
 Style/ExpandPathArguments:

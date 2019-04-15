@@ -2,6 +2,6 @@
 
 module Intellimesh
   module Config
-    require "intellimesh/config/sneakers_extensions"
+    require "intellimesh/config/active_job_extensions"
   end
 end
