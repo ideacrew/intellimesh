@@ -7,7 +7,7 @@ require File.join(File.dirname(__FILE__), "configuration", "diplomat_provider") 
 
 module Intellimesh
   module Configuration
-    # @api private
+    # @!visibility private
     class Core
       # rubocop:disable Style/ClassVars
 
@@ -36,7 +36,7 @@ module Intellimesh
       # rubocop:enable Style/ClassVars
     end
 
-    # @api private
+    # @!visibility private
     class Backend
       # rubocop:disable Style/ClassVars
 
@@ -57,10 +57,12 @@ module Intellimesh
     end
 
     module Base
+      # @!visibility private
       def backend
         Thread.current[:_i_mesh_task_fabric_config] ||= Backend.new
       end
 
+      # @!visibility private
       def core
         Thread.current[:_i_mesh_task_fabric_core_config] ||= Core.new
       end
