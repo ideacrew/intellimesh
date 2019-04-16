@@ -11,6 +11,7 @@ require "intellimesh/subscribers"
 require File.join(File.dirname(__FILE__), "intellimesh", "configuration")
 require File.join(File.dirname(__FILE__), "intellimesh", "process_host")
 require File.join(File.dirname(__FILE__), "intellimesh", "protocols")
+require File.join(File.dirname(__FILE__), "intellimesh", "responses")
 require File.join(File.dirname(__FILE__), "intellimesh", "generators") if defined?(Rails)
 
 # require "intellimesh/amqp/worker_specification"
