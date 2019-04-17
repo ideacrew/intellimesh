@@ -11,6 +11,7 @@ Gemspec/OrderedDependencies:
 Layout/IndentHeredoc:
   Exclude:
     - lib/intellimesh/generators/sneakers_active_job_host_generator.rb
+    - lib/intellimesh/generators/sneakers_process_host_generator.rb
 
 Metrics/BlockLength:
   Exclude:

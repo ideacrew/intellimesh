@@ -10,6 +10,8 @@ module Intellimesh
       # configuration KV store to being supplied directly in code.
       class SneakersConfiguration
         # Apply the configuration.
+        attr_accessor :worker_count
+        attr_accessor :handler
 
         def initialize(pid_file_location, handler = nil, worker_count = 1)
           @pid_file_location = pid_file_location
@@ -18,6 +20,7 @@ module Intellimesh
         end
 
         def apply
+          Sneakers.logger.level = Logger::INFO
           Sneakers.configure(
             to_sneakers_parameters
           )
