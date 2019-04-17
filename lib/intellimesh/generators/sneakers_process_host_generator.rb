@@ -9,7 +9,8 @@ module Intellimesh
     class SneakersProcessHostGenerator < Rails::Generators::Base
       desc "Generate the worker host runner script for sneakers active jobs."
       def create_sneakers_process_host_file
-        create_file "script/sneakers_active_job_host.rb", <<RUBYCODE
+        create_file("script/sneakers_process_host.rb", {:skip => true}) do
+<<RUBYCODE
 require 'sneakers'
 require 'sneakers/runner'
 
@@ -30,6 +31,7 @@ sneakers_configuration = Intellimesh::ProcessHost::Configuration::SneakersConfig
 
 Intellimesh::ProcessHost::SneakersProcessHost.run(diplomat_configuration_provider, sneakers_configuration)
 RUBYCODE
+        end
       end
     end
   end

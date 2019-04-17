@@ -5,7 +5,7 @@ PATH
       active_model_serializers (>= 0.10.0)
       activesupport
       rails (>= 4.2)
-      sneakers (>= 2.11)
+      sneakers (>= 1.1)
 
 GEM
   remote: https://rubygems.org/
