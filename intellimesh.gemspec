@@ -44,10 +44,11 @@ Gem::Specification.new do |spec|
   # unable to upgrade past this point.
   # Our first order of business will be to boost this requirement
   # to the Rails 5 series as soon as we can.
-  spec.add_dependency "rails", ">= 4.2"
-  spec.add_dependency 'activesupport'
-  spec.add_dependency 'sneakers',                 '>= 2.11'
+  # spec.add_dependency "rails", "~> 6.0.0.beta3"
+  spec.add_dependency 'activejob',                '>= 5.0'
+  spec.add_dependency 'activesupport',            '>= 5.0'
   spec.add_dependency 'active_model_serializers', '>= 0.10.0'
+  spec.add_dependency 'sneakers',                 '>= 2.11'
   # spec.add_dependency "mongoid"
 
   spec.add_development_dependency "bundler", "~> 1.16"
