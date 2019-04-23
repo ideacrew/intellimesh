@@ -4,12 +4,15 @@ module Intellimesh
   module Adapters
     class Adapter
 
+      # Provide a unique symbol to identify this adapter in URI addresses
+      URI_SCHEME = nil
+
       def initialize
         register(self)
       end
 
-# Add adapter to URI 
-      def register_adapter(adapter_klass)
+      # Add adapter to URI 
+      def register(adapter_klass)
 # module URI
 #   class RSYNC < Generic
 #     DEFAULT_PORT = 873

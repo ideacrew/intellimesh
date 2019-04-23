@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-RSpec.describe Intellimesh::Generators::SneakersProcessHostGenerator do
+RSpec.describe Intellimesh::Generators::AmqpSneakersClientGenerator do
   it "provides the generator task" do
     the_generator_ns = Rails::Generators.sorted_groups.detect { |ns_list| ns_list.first == "intellimesh" }
-    expect(the_generator_ns.last).to include("intellimesh:sneakers_process_host")
+    expect(the_generator_ns.last).to include("intellimesh:amqp_sneakers_client")
   end
 end

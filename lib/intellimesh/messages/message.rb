@@ -16,27 +16,39 @@ module Intellimesh
 
         # Target must be a URI
         @to = to_uri(options[:to])
+
       end
 
-      def header(hash)
+      def parse_options(options)
+        # @header = 
       end
 
-      def from_address(uri)
+      def parse
       end
 
-      def to_address(uri)
+      def header
+        @header 
       end
 
-      def reply_to_address(uri)
+      def header=(hash)
       end
 
-      def metadata(hash)
+      def from_address=(uri)
       end
 
-      def body(object)
+      def to_address=(uri)
       end
 
-      def attachments()
+      def reply_to_address=(uri)
+      end
+
+      def metadata=(hash)
+      end
+
+      def body=(object)
+      end
+
+      def attachments
       end
 
 

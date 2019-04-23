@@ -6,7 +6,7 @@ module Intellimesh
   module Generators
     # Provides the generator for the script you will need to run alongside your
     # Rails process to host the ActiveJob processes.
-    class SneakersActiveJobHostGenerator < Rails::Generators::Base
+    class AmqpSneakersHostGenerator < Rails::Generators::Base
       desc "Generate the worker host runner script for sneakers active jobs."
       def create_sneakers_active_job_host_file
         create_file("script/sneakers_active_job_host.rb", {:skip => true}) do

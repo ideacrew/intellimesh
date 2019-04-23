@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require 'uri'
+require File.join(File.dirname(__FILE__), "addresses", "address")
 
 module Intellimesh
   module Addresses
-    class Address
-      SCHEME_KINDS = %w[http amqp sftp s3 file]
 
-
-    end
   end
 end
