@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 module Intellimesh
-  class Worker
+  class WorkerService
+
+    # Singleton Adapter for AMQP connection
+    def adapter=(amqp_adapter)
+    end
 
 
 

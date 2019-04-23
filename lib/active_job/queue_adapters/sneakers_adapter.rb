@@ -6,11 +6,17 @@ module ActiveJob
       end
 
       class JobWrapper
-        include Sneakers::Worker
         from_queue "default"
 
         def work(msg)
         end
+
+        def work_daily(msg)
+        end
+
+        def work_hourly(msg)
+        end
+
       end
     end
   end

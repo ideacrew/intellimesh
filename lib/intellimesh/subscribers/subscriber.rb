@@ -4,6 +4,11 @@ module Intellimesh
   module Subscribers
     class Subscriber
 
+# Sneakers::Queue
+#   initialize(name, opts)
+#   #subscribe(worker)
+#   #unsubscribe
+
       def initialize(exchange:, queue:, options:)
 
         # options
