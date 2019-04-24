@@ -7,7 +7,7 @@ module Intellimesh
     class AmqpSneakersClientGenerator < Rails::Generators::NamedBase
       desc "Generate a Sneakers AMQP ActiveJob client file."
       def create_worker_file
-        create_file("config/initializers/register_sneakers_workers.rb", {:skip =>  true}) do
+        create_file("config/initializers/register_sneakers_workers.rb", {:skip => true}) do
           ""
         end
         append_to_file("config/initializers/register_sneakers_workers.rb") do

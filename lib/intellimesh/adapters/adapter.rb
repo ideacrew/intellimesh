@@ -3,7 +3,6 @@
 module Intellimesh
   module Adapters
     class Adapter
-
       # Provide a unique symbol to identify this adapter in URI addresses
       URI_SCHEME = nil
 
@@ -30,11 +29,6 @@ module Intellimesh
 # uri = URI("rsync://rsync.foo.com")
 # #=> #<URI::RSYNC:0x00000000f648c8 URL:rsync://rsync.foo.com>
       end
-
-
-
-
-
     end
   end
 end

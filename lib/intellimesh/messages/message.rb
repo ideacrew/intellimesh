@@ -3,7 +3,6 @@
 module Intellimesh
   module Messages
     class Message
-
         # header (envelope)
         # body
         # metadata
@@ -16,42 +15,33 @@ module Intellimesh
 
         # Target must be a URI
         @to = to_uri(options[:to])
-
       end
 
       def parse_options(options)
         # @header =
       end
 
-      def parse
-      end
+      def parse; end
 
       def header
         @header
       end
 
-      def header=(hash)
-      end
+      def header=(hash); end
 
-      def from_address=(uri)
-      end
+      def from_address=(uri); end
 
-      def to_address=(uri)
-      end
+      def to_address=(uri); end
 
-      def reply_to_address=(uri)
-      end
+      def reply_to_address=(uri); end
 
-      def metadata=(hash)
-      end
+      def metadata=(hash); end
 
       def body=(message)
         { body: message }
       end
 
-      def attachments
-      end
-
+      def attachments; end
 
       def log_inspect()
         <<-LOGSTRING
@@ -73,8 +63,6 @@ module Intellimesh
           end
         end
       end
-
-
     end
   end
 end

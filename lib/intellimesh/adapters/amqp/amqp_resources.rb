@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Intellimesh
   module AmqpResources
 
@@ -10,7 +11,6 @@ module Intellimesh
       service_request_subscriber:   ServiceRequestSubscriber,
       tracked_event_subscriber:     TrackedEventSubscriber,
     }
-
 
     module ClassMethods
 
@@ -45,7 +45,6 @@ module Intellimesh
       #                 start_worker_dealy: 0,
       #                 message: message,
 
-
       # # Local (per worker)
       # include Sneakers::Worker
       # amqp_subscriber :member_address_change,
@@ -62,7 +61,6 @@ module Intellimesh
       #                 hooks: {},
       #                 start_worker_dealy: 0,
       #                 message: message
-
 
       def amqp_resource(name, options = {})
         named = name.to_s

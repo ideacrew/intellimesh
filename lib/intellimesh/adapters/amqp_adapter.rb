@@ -14,7 +14,6 @@ end
 module Intellimesh
   module Adapters
     class AmqpAdapter < Adapter
-
       URI_SCHEME            = :amqp
       EXCHANGE_DEFAULT      = "active_job".freeze
       SERVER_CONFIG_DEFAULT = {
@@ -66,8 +65,7 @@ module Intellimesh
         }
       end
 
-      def default
-      end
+      def default; end
     end
   end
 end

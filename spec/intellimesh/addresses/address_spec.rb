@@ -31,7 +31,6 @@ RSpec.describe Intellimesh::Addresses::Address do
     let(:path)    { "path_value" }
     let(:uri)     { URI::parse("uri://host_value/path_value")}
 
-
     it "to_uri method should return a valid URI" do
       expect(described_class.new(host: host, path: path).to_uri).to eq uri
     end

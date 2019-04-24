@@ -11,7 +11,5 @@ require File.join(File.dirname(__FILE__), "subscribers")
 module Intellimesh
   module Adapters
 
-
-
   end
 end

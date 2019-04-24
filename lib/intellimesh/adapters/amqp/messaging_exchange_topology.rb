@@ -6,7 +6,6 @@ module Intellimesh
   module Protocols
     module Amqp
       class MessagingExchangeTopology
-
         def self.ensure_topology_exists(connection_string)
           topology = new(connection_string)
           topology.setup

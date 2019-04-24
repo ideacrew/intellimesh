@@ -5,7 +5,6 @@ require 'uri'
 module Intellimesh
   module Addresses
     class Address
-
       URI_SCHEME        = 'uri'
       URI_COMPONENTS    = %w[ userinfo host port path query ].freeze
       QUERY_COMPONENTS  = %w[]
@@ -36,7 +35,6 @@ module Intellimesh
           query_str + "?#{component}=#{@component}" if component.present?
         end
       end
-
     end
   end
 end

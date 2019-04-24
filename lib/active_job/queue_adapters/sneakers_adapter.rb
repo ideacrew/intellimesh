@@ -1,22 +1,18 @@
+# frozen_string_literal: true
+
 module ActiveJob
   module QueueAdapters
     class SneakersAdapter
-
-      def enqueue(job)
-      end
+      def enqueue(job); end
 
       class JobWrapper
         # from_queue "default"
 
-        def work(msg)
-        end
+        def work(msg); end
 
-        def work_daily(msg)
-        end
+        def work_daily(msg); end
 
-        def work_hourly(msg)
-        end
-
+        def work_hourly(msg); end
       end
     end
   end
