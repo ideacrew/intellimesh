@@ -10,8 +10,9 @@ module Intellimesh
       URI_COMPONENTS    = %w[ userinfo host port path query ].freeze
       QUERY_COMPONENTS  = %w[]
 
-      attr_writer :userinfo, :host, :port, :path, :query 
-      attr_reader :scheme
+      attr_accessor :userinfo, :host, :port, :path, :query, :scheme
+      # attr_writer :userinfo, :host, :port, :path, :query 
+      # attr_reader :scheme
 
       def initialize(**options)
         @scheme = URI_SCHEME
@@ -26,14 +27,14 @@ module Intellimesh
       end
 
       def to_uri
-        host_and_port = [@host, @port].compact.join(":")
-        uri_str = @scheme + "://" + [@userinfo, ""].compact.join("@") + [host_and_port, @path, @query].compact.join("/")
+        host_and_port = [host, port].compact.join(":")
+        uri_str = scheme + "://" + [userinfo, ""].compact.join("@") + [host_and_port, path, query].compact.join("/")
         URI.join(uri_str)
       end
 
       def query
         QUERY_COMPONENTS.reduce("") do |query_str, component|
-          query_str + "?#{component}=#{@component}" if component.present?
+          query_str + "?#{component}=#{component}" if component.present?
         end
       end
 

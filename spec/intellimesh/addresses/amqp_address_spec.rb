@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-RSpec.describe Intellimesh::Addresses::Address do
+RSpec.describe Intellimesh::Addresses::AmqpAddress do
 
-  let(:uri_scheme)  { "uri" }
+  let(:uri_scheme)  { "amqp" }
   let(:uri_min)     { URI::parse("#{uri_scheme}://") }
 
   context "When an address is initialized without parameters" do
@@ -26,29 +26,31 @@ RSpec.describe Intellimesh::Addresses::Address do
 
   context "When an address is initialized with minimum required parameters" do
 
-    let(:host)    { "host_value" }
-    let(:path)    { "path_value" }
-    let(:uri)     { URI::parse("#{uri_scheme}://#{host}/#{path}/")}
+    let(:exchange_name) { "exchange_name_value" }
+    let(:queue_name)    { "queue_name_value" }
+    let(:uri)           { URI::parse("#{uri_scheme}://#{exchange_name}/#{queue_name}/")}
 
 
     it "to_uri method should return a valid URI" do
-      expect(described_class.new(host: host, path: path).to_uri).to eq uri
+      expect(described_class.new(exchange_name: exchange_name, queue_name: queue_name).to_uri).to eq uri
     end
   end
 
   context "When an address is initialized with all URI components except query" do
-    let(:host)      { "host_value" }
-    let(:path)      { "path_value" }
+    let(:exchange_name) { "exchange_name_value" }
+    let(:queue_name)    { "queue_name_value" }
     let(:userinfo)  { "userinfo_value" }
+    let(:routing_key)  { "routing_key_value" }
     let(:port)      { 666 }
-    let(:uri_max)   { URI::parse("#{uri_scheme}://#{userinfo}@#{host}:#{port}/#{path}/")}
+    let(:uri_max)   { URI::parse("#{uri_scheme}://#{userinfo}@#{exchange_name}:#{port}/#{queue_name}/")}
 
     it "to_uri method should return a valid URI" do
       expect(described_class.new(
-                                    host: host, 
-                                    path: path, 
+                                    exchange_name: exchange_name, 
+                                    queue_name: queue_name, 
                                     userinfo: userinfo, 
                                     port: port, 
+                                    routing_key: routing_key, 
                                   ).to_uri).to eq uri_max
     end
   end
