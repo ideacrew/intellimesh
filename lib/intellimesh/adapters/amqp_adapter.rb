@@ -10,6 +10,7 @@ module Intellimesh
     end
   end
 end
+
 module Intellimesh
   module Adapters
     class AmqpAdapter < Adapter
@@ -19,7 +20,7 @@ module Intellimesh
       SERVER_CONFIG_DEFAULT = {
         heartbeat:      10,
         exchange:       'active_job',
-        exchange_type:  :direct,
+        exchange_type:  :direct
       }
 
       WORKER_CONFIG_DEFAULT = {
@@ -32,11 +33,11 @@ module Intellimesh
         heartbeat:              2,                # Keep a good connection with broker
         exchange:               EXCHANGE_DEFAULT, # AMQP exchange
         hooks:                  {},               # prefork/postfork hooks
-        start_worker_delay:     10,               # Delay between thread startup  
+        start_worker_delay:     10,               # Delay between thread startup
 
         retry_exchange:         'activejob-retry',
         retry_error_exchange:   'activejob-error',
-        retry_requeue_exchange: 'activejob-retry-requeue'       
+        retry_requeue_exchange: 'activejob-retry-requeue'
       }
 
       attr_accessor :worker_count, :handler, :pid_file_location
@@ -63,12 +64,10 @@ module Intellimesh
       def default_global_worker_config
         {
         }
-
       end
 
       def default
-
-
+      end
     end
   end
 end

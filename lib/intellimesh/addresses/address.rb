@@ -10,7 +10,7 @@ module Intellimesh
       URI_COMPONENTS    = %w[ userinfo host port path query ].freeze
       QUERY_COMPONENTS  = %w[]
 
-      attr_writer :userinfo, :host, :port, :path, :query 
+      attr_writer :userinfo, :host, :port, :path, :query
       attr_reader :scheme
 
       def initialize(**options)

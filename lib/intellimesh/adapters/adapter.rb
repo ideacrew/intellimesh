@@ -11,7 +11,7 @@ module Intellimesh
         register(self)
       end
 
-      # Add adapter to URI 
+      # Add adapter to URI
       def register(adapter_klass)
 # module URI
 #   class RSYNC < Generic

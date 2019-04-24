@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Intellimesh
   # Used to encapsulate a result that may return either a failure -
   # the 'left' value - or a result - the 'right' value.
@@ -7,7 +9,6 @@ module Intellimesh
   # This is primarily useful to avoid 'stairstepping' - or constant wrapped
   # calls to begin..rescue..end that propagate or don't depending on the result.
   class Either
-
     # The 'left', or 'bad' result.
     # Executing behaviour against this will propogate the error -
     # it won't actually run the code you supply.
@@ -59,7 +60,7 @@ module Intellimesh
       # @yieldreturn [Left<L>, Right<R2>]
       # @return [Left<L>, Right<R2>] The new Either result.
       def then
-        yield self.value
+        yield value
       end
 
       # Execute some code that returns a value as a result of running the
@@ -70,7 +71,7 @@ module Intellimesh
       # @return [Right<R2>] The new result to place in the Right.
       def fmap
         self.class.new(
-          yield self.value
+          yield value
         )
       end
 
@@ -83,10 +84,20 @@ module Intellimesh
       end
     end
 
+    # Create a new 'right' instance.
+    # Use for normal operations on values.
+    #
+    # @param val [R] the value
+    # @return [Right<R>]
     def self.right(val)
       Right.new(val)
     end
 
+    # Create a new 'left' instance.
+    # Use this to capture failures or errors.
+    #
+    # @param val [L] the value
+    # @return [Left<L>]
     def self.left(val)
       Left.new(val)
     end

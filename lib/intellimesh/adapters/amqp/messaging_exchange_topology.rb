@@ -23,7 +23,7 @@ module Intellimesh
           event_fanout = @channel.fanout(event_fanout_exchange_name, { :durable => true })
           event_topic = @channel.topic(event_topic_exchange_name, { :durable => true })
           event_direct = @channel.direct(event_direct_exchange_name, { :durable => true })
-    
+
           event_topic.bind(event_fanout)
           event_direct.bind(event_fanout)
 

@@ -4,11 +4,11 @@ module Intellimesh
   module Clients
     module Amqp
 
-      # included do 
+      # included do
       #   include Sneakers::Worker
       #   attr_writer :resource_kind
 
-      #   Intellimesh::Clients::Amqp.class_name ||= name.        
+      #   Intellimesh::Clients::Amqp.class_name ||= name.
       # end
 
       ## Class Methods
@@ -24,7 +24,7 @@ module Intellimesh
         def publisher
         end
 
-        # Use the ActiveJob queue attribute to determine 
+        # Use the ActiveJob queue attribute to determine
         def worker_service
         end
 

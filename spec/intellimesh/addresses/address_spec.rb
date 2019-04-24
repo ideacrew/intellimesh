@@ -46,10 +46,10 @@ RSpec.describe Intellimesh::Addresses::Address do
 
     it "to_uri method should return a valid URI" do
       expect(described_class.new(
-                                    host: host, 
-                                    path: path, 
-                                    userinfo: userinfo, 
-                                    port: port, 
+                                    host: host,
+                                    path: path,
+                                    userinfo: userinfo,
+                                    port: port,
                                   ).to_uri).to eq uri_max
     end
   end

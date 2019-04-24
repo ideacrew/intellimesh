@@ -20,14 +20,14 @@ module Intellimesh
       end
 
       def parse_options(options)
-        # @header = 
+        # @header =
       end
 
       def parse
       end
 
       def header
-        @header 
+        @header
       end
 
       def header=(hash)

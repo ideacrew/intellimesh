@@ -29,8 +29,8 @@ module Intellimesh
       #   classes: DailyWorker
       #   workers: 10
 
-      # amqp_publisher :member_address_change, 
-      #                 kind: ServiceRequestPublisher, 
+      # amqp_publisher :member_address_change,
+      #                 kind: ServiceRequestPublisher,
       #                 exchange: :member_tracked_events,
       #                 # from_queue: :downloads,
       #                 reply_to_queu: :member_address_change_fa43670, # add to message
@@ -48,8 +48,8 @@ module Intellimesh
 
       # # Local (per worker)
       # include Sneakers::Worker
-      # amqp_subscriber :member_address_change, 
-      #                 kind: ServiceRequestSubscriber, 
+      # amqp_subscriber :member_address_change,
+      #                 kind: ServiceRequestSubscriber,
       #                 exchange: :member_tracked_events,
       #                 from_queue: :member_address_change_fa43670,
       #                 env: ENV['RACK_ENV'],
