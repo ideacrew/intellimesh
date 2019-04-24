@@ -15,7 +15,7 @@ require 'sneakers'
 require 'sneakers/runner'
 
 # Configure the basic program variables
-Intellimesh::Configuration.tenant_name = ENV['IC_TENANT_NAME']
+Intellimesh::Configuration.site_name = ENV['IC_SITE_NAME']
 Intellimesh::Configuration.environment_name = ENV['IC_ENVIRONMENT_NAME']
 
 # Supply configuration provider, default is Diplomat

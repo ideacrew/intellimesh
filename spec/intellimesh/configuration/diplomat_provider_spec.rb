@@ -61,7 +61,7 @@ end
 
 RSpec.describe Intellimesh::Configuration::DiplomatProvider, "given a simple 2 level configuration" do
   let(:broker_url) { "A BROKER URL" }
-  let(:tenant_name) { "A TENANT NAME" }
+  let(:site_name) { "A TENANT NAME" }
   let(:environment_name) { "AN ENVIRONMENT NAME" }
   let(:diplomat_uri) { "A DIPLOMAT URI" }
   let(:consul_token) { "A CONSUL TOKEN" }
@@ -93,11 +93,11 @@ RSpec.describe Intellimesh::Configuration::DiplomatProvider, "given a simple 2 l
       }
     )
     allow(::Diplomat::Kv).to receive(:get).with(
-      [tenant_name, environment_name, "amqp", "broker_url"].join("/")
+      [site_name, environment_name, "amqp", "broker_url"].join("/")
     ).and_return(broker_url)
   end
 
   it "returns the requested data" do
-    expect(subject.get(["amqp", "broker_url"], tenant_name, environment_name)).to eq broker_url
+    expect(subject.get(["amqp", "broker_url"], site_name, environment_name)).to eq broker_url
   end
 end
