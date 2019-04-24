@@ -12,18 +12,18 @@ module Intellimesh
       # rubocop:disable Style/ClassVars
 
       def initialize
-        return if defined?(@@tenant_name)
+        return if defined?(@@site_name)
 
-        @@tenant_name = nil
+        @@site_name = nil
         @@environment_name = nil
       end
 
-      def tenant_name=(t_name)
-        @@tennant_name = t_name
+      def site_name=(t_name)
+        @@site_name = t_name
       end
 
-      def tenant_name
-        @@tennant_name
+      def site_name
+        @@site_name
       end
 
       def environment_name=(e_name)
@@ -71,12 +71,12 @@ module Intellimesh
         backend.provider = prov
       end
 
-      def tenant_name=(t_name)
-        core.tenant_name = t_name
+      def site_name=(t_name)
+        core.site_name = t_name
       end
 
-      def tenant_name
-        core.tenant_name
+      def site_name
+        core.site_name
       end
 
       def environment_name=(e_name)
@@ -95,7 +95,7 @@ module Intellimesh
         prov = backend.provider
         raise Errors::NoProviderSpecifiedError unless prov
 
-        prov.get(setting, tenant_name, environment_name, default)
+        prov.get(setting, site_name, environment_name, default)
       end
     end
 

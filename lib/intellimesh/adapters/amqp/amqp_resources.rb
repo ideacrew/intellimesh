@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Intellimesh
   module AmqpResources
 
@@ -10,7 +11,6 @@ module Intellimesh
       service_request_subscriber:   ServiceRequestSubscriber,
       tracked_event_subscriber:     TrackedEventSubscriber,
     }
-
 
     module ClassMethods
 
@@ -29,8 +29,8 @@ module Intellimesh
       #   classes: DailyWorker
       #   workers: 10
 
-      # amqp_publisher :member_address_change, 
-      #                 kind: ServiceRequestPublisher, 
+      # amqp_publisher :member_address_change,
+      #                 kind: ServiceRequestPublisher,
       #                 exchange: :member_tracked_events,
       #                 # from_queue: :downloads,
       #                 reply_to_queu: :member_address_change_fa43670, # add to message
@@ -45,11 +45,10 @@ module Intellimesh
       #                 start_worker_dealy: 0,
       #                 message: message,
 
-
       # # Local (per worker)
       # include Sneakers::Worker
-      # amqp_subscriber :member_address_change, 
-      #                 kind: ServiceRequestSubscriber, 
+      # amqp_subscriber :member_address_change,
+      #                 kind: ServiceRequestSubscriber,
       #                 exchange: :member_tracked_events,
       #                 from_queue: :member_address_change_fa43670,
       #                 env: ENV['RACK_ENV'],
@@ -62,7 +61,6 @@ module Intellimesh
       #                 hooks: {},
       #                 start_worker_dealy: 0,
       #                 message: message
-
 
       def amqp_resource(name, options = {})
         named = name.to_s

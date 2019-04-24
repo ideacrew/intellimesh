@@ -6,7 +6,6 @@ module Intellimesh
   module Protocols
     module Amqp
       class MessagingExchangeTopology
-
         def self.ensure_topology_exists(connection_string)
           topology = new(connection_string)
           topology.setup
@@ -23,7 +22,7 @@ module Intellimesh
           event_fanout = @channel.fanout(event_fanout_exchange_name, { :durable => true })
           event_topic = @channel.topic(event_topic_exchange_name, { :durable => true })
           event_direct = @channel.direct(event_direct_exchange_name, { :durable => true })
-    
+
           event_topic.bind(event_fanout)
           event_direct.bind(event_fanout)
 
@@ -43,7 +42,7 @@ module Intellimesh
         protected
 
         def common_exchange_prefix
-          hbx_id = ::Intellimesh::Configuration.tenant_name
+          hbx_id = ::Intellimesh::Configuration.site_name
           env_name = ::Intellimesh::Configuration.environment_name
           "#{hbx_id}.#{env_name}.e."
         end

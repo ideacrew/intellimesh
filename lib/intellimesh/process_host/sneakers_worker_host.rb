@@ -77,7 +77,7 @@ module Intellimesh
         sneakers_configuration
       )
         ::Intellimesh::Configuration.provider = configuration_provider
-        worker_classes = []  # Resolved below
+        worker_classes = [] # Resolved below
         sneakers_configuration.handler = ::Sneakers::Handlers::Maxretry
         sneakers_configuration.worker_count = worker_classes.length
         # rubocop:disable Lint/RescueException

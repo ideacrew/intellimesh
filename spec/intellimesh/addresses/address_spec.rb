@@ -30,7 +30,6 @@ RSpec.describe Intellimesh::Addresses::Address do
     let(:path)    { "path_value" }
     let(:uri)     { URI::parse("#{uri_scheme}://#{host}/#{path}/")}
 
-
     it "to_uri method should return a valid URI" do
       expect(described_class.new(host: host, path: path).to_uri).to eq uri
     end
@@ -45,10 +44,10 @@ RSpec.describe Intellimesh::Addresses::Address do
 
     it "to_uri method should return a valid URI" do
       expect(described_class.new(
-                                    host: host, 
-                                    path: path, 
-                                    userinfo: userinfo, 
-                                    port: port, 
+                                    host: host,
+                                    path: path,
+                                    userinfo: userinfo,
+                                    port: port,
                                   ).to_uri).to eq uri_max
     end
   end

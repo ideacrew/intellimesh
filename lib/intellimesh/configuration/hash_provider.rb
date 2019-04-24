@@ -11,11 +11,11 @@ module Intellimesh
 
       # Get a configuration value from the hash.
       # @param setting [#join, String] the configuration setting to retrieve
-      # @param _tenant_name [String] the name of the tenant
+      # @param _site_name [String] the name of the site
       # @param _environment_name [String] the name of the environment
       # @param default [Object, nil] the default value if one is not found
       # @return [Object, nil]
-      def get(setting, _tenant_name, _environment_name, default = nil)
+      def get(setting, _site_name, _environment_name, default = nil)
         @config.dig(*setting) || default
       end
     end

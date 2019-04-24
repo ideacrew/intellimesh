@@ -3,21 +3,19 @@
 module Intellimesh
   module Exchanges
     class Exchange
-
       def initialize(options:)
         # options
         # :to_queue, :routing_key
       end
-
     end
   end
 end
 
 # Sneakers
-# $ sneakers run TitleWorker,FooWorker 
-# $ sneakers stop 
-# $ sneakers recycle 
-# $ sneakers reload 
+# $ sneakers run TitleWorker,FooWorker
+# $ sneakers stop
+# $ sneakers recycle
+# $ sneakers reload
 # $ sneakers init
 # CONFIG = Configuration.new
 
@@ -38,7 +36,7 @@ end
 #   #ack!
 #   #do_work(delivery_info, metadta, msg, handler)
 #   #log_msg(msg)
-#   #publish(msg, opts) 
+#   #publish(msg, opts)
 #   #reject!
 #   #requeue!
 #   #run
