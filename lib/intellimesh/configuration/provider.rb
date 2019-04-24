@@ -10,11 +10,11 @@ module Intellimesh
 
       # Get a configuration value from the provider.
       # @param setting [#join, String] the configuration setting to retrieve
-      # @param tenant_name [String] the name of the tenant
+      # @param site_name [String] the name of the site
       # @param environment_name [String] the name of the environment
       # @param default [Object, nil] the default value if one is not found
       # @return [Object, nil]
-      def get(setting, tenant_name, environment_name, default = nil)
+      def get(setting, site_name, environment_name, default = nil)
         raise NotImplementedError, "Subclass Responsibility"
       end
 

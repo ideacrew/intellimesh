@@ -84,13 +84,13 @@ module Intellimesh
         end
 
         def exchange_name
-          hbx_id = ::Intellimesh::Configuration.tenant_name
+          hbx_id = ::Intellimesh::Configuration.site_name
           env_name = ::Intellimesh::Configuration.environment_name
           "#{hbx_id}.#{env_name}.e.#{exchange_kind}.#{message_category_for_exchange.to_s}"
         end
 
         def full_queue_name
-          hbx_id = ::Intellimesh::Configuration.tenant_name
+          hbx_id = ::Intellimesh::Configuration.site_name
           env_name = ::Intellimesh::Configuration.environment_name
           "#{hbx_id}.#{env_name}.q.#{queue_name}"
         end

@@ -42,7 +42,7 @@ module Intellimesh
         protected
 
         def common_exchange_prefix
-          hbx_id = ::Intellimesh::Configuration.tenant_name
+          hbx_id = ::Intellimesh::Configuration.site_name
           env_name = ::Intellimesh::Configuration.environment_name
           "#{hbx_id}.#{env_name}.e."
         end
