@@ -6,7 +6,7 @@ module ActiveJob
       end
 
       class JobWrapper
-        from_queue "default"
+        # from_queue "default"
 
         def work(msg)
         end

@@ -8,7 +8,7 @@ module Intellimesh
         # body
         # metadata
 
-      HEADER_PROPERTIES = %w[from_address to_address reply_to_address submitted_at auth metadata]
+      HEADER_PROPERTIES = %w[from_address to_address reply_to_address submitted_at auth metadata mime_type]
       BODY_PROPERTIES   = %w[body attachments]
 
       def initialize(**options)
@@ -45,7 +45,8 @@ module Intellimesh
       def metadata=(hash)
       end
 
-      def body=(object)
+      def body=(message)
+        { body: message }
       end
 
       def attachments

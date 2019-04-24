@@ -2,6 +2,11 @@
 
 require "active_support"
 
+require "uri/amqp"
+require "uri/sftp"
+require "uri/wks"
+require "active_job/queue_adapters/sneakers_adapter"
+require "intellimesh/addresses"
 require "intellimesh/version"
 require "intellimesh/clients"
 require "intellimesh/loggable"
