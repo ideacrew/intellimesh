@@ -2,7 +2,8 @@
 
 require File.join(File.dirname(__FILE__), "addresses", "address")
 require File.join(File.dirname(__FILE__), "addresses", "amqp_address")
-require File.join(File.dirname(__FILE__), "addresses", "parsers", "parser")
+# Disabling until specs are able to run.
+# require File.join(File.dirname(__FILE__), "addresses", "parsers", "parser")
 
 module Intellimesh
   module Addresses
