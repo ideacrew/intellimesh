@@ -2,19 +2,20 @@ module Intellimesh
   module Addresses
     class AmqpAddress < Address
 
-      attr_accessor :exchange_name, :exchange_type, :routing_key, :queue_name
-
-      # amqp_host     = "amqp://domain_name:port"
-      # amqp_send_to  = "amqp://exchange_name/queue_name?routing_key=routing_key"
-      # amqp_reply_to = "amqp://exchange_name/queue_name?routing_key=routing_key"
+      # amqp_send_to  = "amqp://exchange_name/queue_name?routing_key=value?exchange_type=value"
+      # amqp_reply_to = "amqp://exchange_name/queue_name?routing_key=value"
 
       URI_SCHEME        = 'amqp'
       QUERY_COMPONENTS  = %w[routing_key exchange_type].freeze
+
+      attr_accessor :exchange_name, :exchange_type, :routing_key, :queue_name
 
       def initialize(**options)
         super(options)
         @scheme = URI_SCHEME
         @query_components = QUERY_COMPONENTS
+
+        to_uri
       end
 
       def host

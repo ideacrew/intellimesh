@@ -14,12 +14,11 @@ RSpec.describe Intellimesh::Addresses::Address do
       expect(subject.scheme).to eq uri_scheme
     end
 
-    it "and the URI query component string should be empty" do
+    it "and the URI query component string should be empty string" do
       expect(subject.query).to eq ""
     end
 
-    it "and the #to_uri method should return throw an ArgumentError" do
-      # expect{subject.to_uri}.to raise_error(ArgumentError)
+    it "and the #to_uri method should return a URI with only a scheme" do
       expect(subject.to_uri).to eq uri_min
     end
   end
@@ -39,7 +38,7 @@ RSpec.describe Intellimesh::Addresses::Address do
     let(:host)      { "host_value" }
     let(:path)      { "path_value" }
     let(:userinfo)  { "userinfo_value" }
-    let(:port)      { 666 }
+    let(:port)      { 9999 }
     let(:uri_max)   { URI::parse("#{uri_scheme}://#{userinfo}@#{host}:#{port}/#{path}")}
 
     it "to_uri method should return a valid URI" do

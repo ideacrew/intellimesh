@@ -18,8 +18,7 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
       expect(subject.query).to be_nil
     end
 
-    it "and the #to_uri method should return throw an ArgumentError" do
-      # expect{subject.to_uri}.to raise_error(ArgumentError)
+    it "and the #to_uri method should return a URI with only a scheme" do
       expect(subject.to_uri).to eq uri_min
     end
   end
@@ -42,10 +41,22 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
     let(:userinfo)      { "userinfo_value" }
     let(:routing_key)   { "routing_key_value" }
     let(:exchange_type) { "exchange_type_value" }
-    let(:port)          { 666 }
-    let(:uri_max)       { URI::parse("#{uri_scheme}://#{userinfo}@#{exchange_name}:#{port}/#{queue_name}?routing_key=#{routing_key}?exchange_type=#{exchange_type}")}
+    let(:port)          { 9999 }
+    let(:uri_string)    { "#{uri_scheme}://#{userinfo}@#{exchange_name}:#{port}/#{queue_name}?routing_key=#{routing_key}?exchange_type=#{exchange_type}" }
+    let(:uri_max)       { URI::parse(uri_string)}
 
-    it "to_uri method should return a valid URI" do
+    it "to_uri method should return a correcly structured address string" do
+      expect(described_class.new(
+                                    exchange_name: exchange_name, 
+                                    queue_name: queue_name, 
+                                    userinfo: userinfo, 
+                                    port: port, 
+                                    routing_key: routing_key, 
+                                    exchange_type: exchange_type,
+                                  ).to_s).to eq uri_string
+    end
+
+    it "to_uri method should return a valid address URI" do
       expect(described_class.new(
                                     exchange_name: exchange_name, 
                                     queue_name: queue_name, 
@@ -55,6 +66,7 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
                                     exchange_type: exchange_type,
                                   ).to_uri).to eq uri_max
     end
+
   end
 
 end
