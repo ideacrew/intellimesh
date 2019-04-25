@@ -14,8 +14,8 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
       expect(subject.scheme).to eq uri_scheme
     end
 
-    it "and the URI query component string should be empty" do
-      expect(subject.query).to eq ""
+    it "and the URI query component string should be_nil" do
+      expect(subject.query).to be_nil
     end
 
     it "and the #to_uri method should return throw an ArgumentError" do
@@ -28,7 +28,7 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
 
     let(:exchange_name) { "exchange_name_value" }
     let(:queue_name)    { "queue_name_value" }
-    let(:uri)           { URI::parse("#{uri_scheme}://#{exchange_name}/#{queue_name}/")}
+    let(:uri)           { URI::parse("#{uri_scheme}://#{exchange_name}/#{queue_name}")}
 
 
     it "to_uri method should return a valid URI" do
@@ -39,10 +39,11 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
   context "When an address is initialized with all URI components except query" do
     let(:exchange_name) { "exchange_name_value" }
     let(:queue_name)    { "queue_name_value" }
-    let(:userinfo)  { "userinfo_value" }
-    let(:routing_key)  { "routing_key_value" }
-    let(:port)      { 666 }
-    let(:uri_max)   { URI::parse("#{uri_scheme}://#{userinfo}@#{exchange_name}:#{port}/#{queue_name}/")}
+    let(:userinfo)      { "userinfo_value" }
+    let(:routing_key)   { "routing_key_value" }
+    let(:exchange_type) { "exchange_type_value" }
+    let(:port)          { 666 }
+    let(:uri_max)       { URI::parse("#{uri_scheme}://#{userinfo}@#{exchange_name}:#{port}/#{queue_name}?routing_key=#{routing_key}?exchange_type=#{exchange_type}")}
 
     it "to_uri method should return a valid URI" do
       expect(described_class.new(
@@ -51,6 +52,7 @@ RSpec.describe Intellimesh::Addresses::AmqpAddress do
                                     userinfo: userinfo, 
                                     port: port, 
                                     routing_key: routing_key, 
+                                    exchange_type: exchange_type,
                                   ).to_uri).to eq uri_max
     end
   end
