@@ -30,6 +30,15 @@ module Intellimesh
       @logger = logger
     end
 
+    def exception_to_str(e)
+      (["#{e.class}: #{e}"] + e.backtrace).join("\n  ")
+    end
+
+    def message_with_exception(message, e)
+      [message, exception_to_str(e)].join("\n")
+    end
+
+
     private
 
     # Gets the default Mongoid logger - stdout.
@@ -42,7 +51,7 @@ module Intellimesh
     # @return [Logger] The default logger.
     def default_logger
       logger = Logger.new($stdout)
-      logger.level = Mongoid::Config.log_level
+      logger.level = Intellimesh::Configuration::Config.log_level
       logger
     end
 

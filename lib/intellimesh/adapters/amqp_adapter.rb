@@ -34,9 +34,6 @@ module Intellimesh
         hooks:                  {},               # prefork/postfork hooks
         start_worker_delay:     10,               # Delay between thread startup
 
-        retry_exchange:         'activejob-retry',
-        retry_error_exchange:   'activejob-error',
-        retry_requeue_exchange: 'activejob-retry-requeue'
       }
 
       attr_accessor :worker_count, :handler, :pid_file_location

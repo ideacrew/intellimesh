@@ -3,14 +3,15 @@
 require "active_support"
 
 require "active_job/queue_adapters/sneakers_adapter"
+require "intellimesh/uris"
 require "intellimesh/addresses"
+require "intellimesh/messages/message"
 require "intellimesh/version"
 require "intellimesh/clients"
 require "intellimesh/loggable"
 require "intellimesh/errors/intellimesh_error"
 require "intellimesh/publishers"
 require "intellimesh/subscribers"
-require "intellimesh/uri"
 require File.join(File.dirname(__FILE__), "intellimesh", "either")
 require File.join(File.dirname(__FILE__), "intellimesh", "configuration")
 require File.join(File.dirname(__FILE__), "intellimesh", "generators") if defined?(Rails)

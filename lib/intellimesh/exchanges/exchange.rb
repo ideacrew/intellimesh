@@ -2,60 +2,51 @@
 
 module Intellimesh
   module Exchanges
-    class Exchange
-      def initialize(options:)
-        # options
-        # :to_queue, :routing_key
+    module Exchange
+      extend ActiveSupport::Concern
+
+      included do
+        class_attribute :_exchange, instance_accessor: false, instance_predicate: false
+        class_attribute :_exchange_name, instance_accessor: false, instance_predicate: false
+      end
+
+      module ClassMethods
+        DEFAULT_EXCHANGE_NAME = :default
+
+        def exchange
+          _exchange
+        end
+
+        def exchange_name=(name_or_exchange = DEFAULT_EXCHANGE_NAME)
+          case name_or_exchange
+          when Symbol, String
+            exchange = registered_exchange_lookup(name_or_exchange).new
+            assign_exchange(name_or_exchange.to_s, exchange)
+          else
+            if is_exchange?(name_or_exchange)
+              name = "#{name_or_exchange.class.name.demodulize.underscore}"
+              assign_exchange(name, name_or_exchange)
+            else
+              raise ArgumentError
+            end
+          end
+
+        end
+      end
+
+      private
+
+      def assign_exchange(exchange_name, exchange)
+        self._exchange_name = exchange_name
+        self._exchange = exchange
+      end
+
+      EXCHANGE_METHODS  = [:enqueue].freeze
+
+      def is_exchange?(object)
+        EXCHANGE_METHODS.all? { |method| object.respond_to?(method) }
       end
     end
   end
 end
 
-# Sneakers
-# $ sneakers run TitleWorker,FooWorker
-# $ sneakers stop
-# $ sneakers recycle
-# $ sneakers reload
-# $ sneakers init
-# CONFIG = Configuration.new
-
-# Sneakers::Queue
-#   initialize(name, opts)
-#   #subscribe(worker)
-#   #unsubscribe
-
-# Sneakers::Publisher
-#   #initialize(opts)
-#   #publish(msg, options)
-
-# Module Sneakers::Worker
-# Class methods
-#   #included(base)
-# Instance Methods
-#   #initialize(queue, pool, opts)
-#   #ack!
-#   #do_work(delivery_info, metadta, msg, handler)
-#   #log_msg(msg)
-#   #publish(msg, opts)
-#   #reject!
-#   #requeue!
-#   #run
-#   #stop
-#   #worker_error(msg, exception)
-#   #worker_trace(msg)
-
-# Module Sneakers::Worker::ClassMethods
-# In more advanced scenarios you would be able to mix in components of a worker into your own worker class
-# Instance methods
-#   #enqueue(msg)
-#   #from_queue(q, opts = {})
-
-# Module Sneakers::WorkerGroup
-#   #after_fork
-#   #before_fork
-#   #initilize
-#   #run
-#   #stop
-
-# Sneakers::HAndlers::Maxretry
-# Sneakers::HAndlers::Oneshot

@@ -2,6 +2,17 @@
 
 Task, worker, and service fabric for IdeaCrew applications.
 
+Broker: 
+Producer: an application that sends messages to an Exchange on a Broker
+Consumer: an application that consumes messages from a Queue on the Broker and invokes the Processors to act upon the messages
+
+Message: an event or command sent via Broker. Messages include both header and payload components.
+Exchange: in RabbitMQ's model, producers send messages to an Exchange. Consumers can create a Queue that listens to the exchange, instead of subscribing to the exchange directly. This is done so that the queue can buffer any messages and we can make sure all messages get delivered to the consumer.
+Queue: a queue listens to an Exchange. In most cases the queue will listen to all messages, but it's also possible to listen to a specific pattern.
+Routing Key: a pattern string that enables queues to filter messages on an Exchange
+Processor: the specific class that processes a message.
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
