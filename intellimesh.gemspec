@@ -49,7 +49,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport',            '>= 5.0'
   spec.add_dependency 'active_model_serializers', '>= 0.10.0'
   spec.add_dependency 'sneakers',                 '>= 2.11'
-  # spec.add_dependency "mongoid"
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
@@ -57,8 +56,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency 'shoulda-matchers'
-  # spec.add_development_dependency "mongoid-rspec"
-  # spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'factory_bot_rails'
   spec.add_development_dependency 'pry-byebug'
